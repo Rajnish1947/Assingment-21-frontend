@@ -1,0 +1,125 @@
+/* Resetting margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(250, 0, 0, 0.952), rgba(0, 0, 0, 0.4)), url('background-image.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Hero Content */
+.hero-content {
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideInTitle 1s ease-out forwards;
+}
+
+.hero-subtitle {
+    font-size: 1.75rem;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInSubtitle 2s ease-out forwards;
+}
+
+/* Button */
+.btn-cta {
+    background-color: #00aaff;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    box-shadow: 0 8px 16px rgba(5, 155, 230, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: #0099cc;
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(13, 155, 226, 0.6);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideInTitle {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSubtitle {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover Interaction for Images */
+.hero-images .hero-image {
+    width: 100%;
+    max-width: 300px;
+    opacity: 0.4;
+    transition: transform 0.3s, opacity 0.3s;
+}
+#image1{
+    border-radius: 12px;
+    margin: 50px;
+}
+#image2{
+    border-radius: 12px;
+    margin-right: 50px;
+}
+.hero-images .hero-image:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Parallax mouse effect */
+.hero:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .btn-cta {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
