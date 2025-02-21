@@ -1,17 +1,10 @@
-/* Resetting margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body styling */
+/* Hero Section */
 body {
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
+    background: linear-gradient(135deg, rgba(250, 0, 0, 0.952), rgba(0, 0, 0, 0.4))
 }
 
-/* Hero Section */
 .hero {
     height: 100vh;
     background: linear-gradient(135deg, rgba(250, 0, 0, 0.952), rgba(0, 0, 0, 0.4)), url('background-image.jpg') no-repeat center center/cover;
@@ -28,10 +21,15 @@ body {
 /* Hero Content */
 .hero-content {
     z-index: 2;
+    position: relative;
     opacity: 0;
     animation: fadeIn 2s ease-out forwards;
 }
-
+.hero-title :hover{
+    font-size: 100px;
+    z-index: 12;
+    
+}
 .hero-title {
     font-size: 4rem;
     font-weight: 700;
@@ -47,27 +45,50 @@ body {
     animation: fadeInSubtitle 2s ease-out forwards;
 }
 
-/* Button */
-.btn-cta {
-    background-color: #00aaff;
-    padding: 15px 35px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: white;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    box-shadow: 0 8px 16px rgba(5, 155, 230, 0.4);
-    transition: all 0.3s ease;
+/* Hover Interaction for Images */
+.hero-images .hero-image {
+    width: 100%;
+    max-width: 300px;
+    opacity: 0.4;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: absolute;
+    z-index: 1;
 }
 
-.btn-cta:hover {
-    background-color: #0099cc;
-    transform: translateY(-5px);
-    box-shadow: 0 16px 32px rgba(13, 155, 226, 0.6);
+#image1 {
+    border-radius: 12px;
+    margin: 50px;
+    left: 0;
+    transition: transform 0.3s ease;
 }
 
-/* Keyframe Animations */
+#image2 {
+    border-radius: 12px;
+    margin-right: 50px;
+    transition-duration: 1s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+}
+
+.hero:hover .hero-image {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.hero:hover #image1 {
+    transform: translateX(20px);
+}
+
+
+#bo4:hover{
+    transform: rotatez(180deg);
+}
+
+.hero:hover .hero-content {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -83,43 +104,47 @@ body {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Hover Interaction for Images */
-.hero-images .hero-image {
-    width: 100%;
-    max-width: 300px;
-    opacity: 0.4;
-    transition: transform 0.3s, opacity 0.3s;
+/* Info Section Styling */
+.info-section {
+    padding: 50px 0;
+    position: relative;
+    text-align: center;
 }
-#image1{
-    border-radius: 12px;
-    margin: 50px;
+
+.info-section p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
-#image2{
-    border-radius: 12px;
-    margin-right: 50px;
-}
-.hero-images .hero-image:hover {
+
+.info-section p:hover {
     opacity: 1;
-    transform: scale(1.05);
+    transform: translateY(0);
 }
 
-/* Parallax mouse effect */
-.hero:hover {
-    transform: scale(1.05);
+.info-section h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
+/* Video Section */
+.video-section {
+    padding: 50px 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .hero-subtitle {
-        font-size: 1.3rem;
-    }
-
-    .btn-cta {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
+.video-player {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 12px;
+}
+p{
+    font-size: 15px;
+    font-weight: 600;
 }
